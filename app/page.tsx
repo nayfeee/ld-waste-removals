@@ -285,8 +285,31 @@ export default function Home() {
       </header>
 
       <section className="relative h-[100svh] overflow-hidden md:h-screen">
-        <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/55 via-black/66 to-black/90 md:bg-gradient-to-r md:from-black/92 md:via-black/64 md:to-black/20" />
-        <Image src="/images/hero-ldwr.png" alt="L&D Waste Removals team clearing waste" fill sizes="100vw" className="object-cover saturate-[0.9] contrast-[1.05] brightness-[0.9]" style={{ objectPosition: "70% 10%" }} priority />
+        {/* Mobile video */}
+<video
+  className="absolute inset-0 h-full w-full object-cover md:hidden"
+  autoPlay
+  muted
+  loop
+  playsInline
+  preload="auto"
+>
+  <source src="/videos/hero-video.mp4" type="video/mp4" />
+</video>
+
+{/* Desktop image */}
+<Image
+  src="/images/hero-ldwr.png"
+  alt="L&D Waste Removals team clearing waste"
+  fill
+  sizes="100vw"
+  className="hidden object-cover saturate-[0.9] contrast-[1.05] brightness-[0.9] md:block"
+  style={{ objectPosition: "70% 10%" }}
+  priority
+/>
+
+{/* Much lighter mobile overlay, keep desktop stronger */}
+<div className="absolute inset-0 z-10 bg-gradient-to-b from-black/25 via-black/45 to-black/75 md:bg-gradient-to-r md:from-black/92 md:via-black/64 md:to-black/20" />
         <div className="absolute right-[-90px] top-[20%] z-10 hidden h-[430px] w-[430px] rounded-full bg-[#fed406]/25 blur-3xl md:block" />
 
         <div className="relative z-20 mx-auto flex h-full w-full max-w-7xl px-4 pt-[76px] md:px-6 md:pb-8 md:pt-[190px]">
